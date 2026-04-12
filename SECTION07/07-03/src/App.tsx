@@ -1,3 +1,10 @@
+import StatusMessage from "./StatusMessage";
+
 export default function App() {
-  return <></>;
+  const status = "loading";
+  return (
+    <>
+      <StatusMessage status={status} />
+    </>
+  );
 }
