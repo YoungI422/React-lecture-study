@@ -1,8 +1,12 @@
 import { useState } from "react";
 
-export default function FirstCount() {
-  console.log("FirstCount Component");
-  const [count, setCount] = useState(0);
+export default function FirstCount({
+  count,
+  setCount,
+}: {
+  count: number;
+  setCount: React.Dispatch<React.SetStateAction<number>>;
+}) {
   return (
     <>
       <h1>FirstCount Component: {count}</h1>
