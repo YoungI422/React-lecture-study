@@ -23,13 +23,27 @@ export default function App() {
     },
   });
 
-  const handleUpdateUserInfo = () => {};
+  const handleUpdateUserInfo = () => {
+    setUserInfo((userInfo) => ({
+      ...userInfo,
+      name: "rose",
+      contact: {
+        ...userInfo.contact,
+        email: "rose@example.com",
+      },
+      address: {
+        ...userInfo.address,
+        home: {
+          ...userInfo.address.home,
+          city: "Los Angeles",
+        },
+      },
+    }));
+  };
 
   return (
     <>
-      <p>name: {userInfo.name}</p>
-      <p>age: {userInfo.age}</p>
-      <p>gender: {userInfo.gender}</p>
+      <pre>{JSON.stringify(userInfo, null, 2)}</pre>
       <button onClick={handleUpdateUserInfo}>UpdateUserInfo</button>
     </>
   );
