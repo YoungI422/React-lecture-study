@@ -1,11 +1,9 @@
-import { useState } from "react";
-
 export default function FirstCount({
   count,
   setCount,
 }: {
   count: number;
-  setCount: React.Dispatch<React.SetStateAction<number>>;
+  setCount: React.Dispatch<React.SetStateAction<number>>; //dispatch 형태 다름 강의랑
 }) {
   return (
     <>

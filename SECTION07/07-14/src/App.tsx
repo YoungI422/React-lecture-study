@@ -9,5 +9,23 @@ export default function App() {
     { id: 4, name: "Tomato", category: "Vegetable" },
   ]);
 
-  return <></>;
+  const handleRemove = (id: number) => {
+    setItems((items) => items.filter((item) => item.id !== id));
+  };
+
+  return (
+    <>
+      <h1>Items List</h1>
+      <ul>
+        {items
+          //.filter((item) => item.category === "Fruit")
+          .map((item) => (
+            <li key={item.id}>
+              {item.category} - {item.name}
+              <button onClick={() => handleRemove(item.id)}>Remove</button>
+            </li>
+          ))}
+      </ul>
+    </>
+  );
 }
