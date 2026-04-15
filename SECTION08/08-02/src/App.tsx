@@ -1,7 +1,9 @@
+import Global from "./Global";
 export default function App() {
   return (
     <>
-      <h1>App Component</h1>
+      <h1 className="title">App Component</h1>
+      <Global />
     </>
   );
 }
