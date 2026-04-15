@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-const Title = styled.h1`
-  color: red;
-  text-decoration: underline;
+const Title = styled.h1<{ $color: string; $decoration: string }>`
+  color: ${(props) => props.$color};
+  text-decoration: ${(props) => props.$decoration};
 `;
 
 const Wrapper = styled.section`
@@ -14,7 +14,9 @@ export default function App() {
   return (
     <>
       <Wrapper>
-        <Title>Hello, ReactJS!</Title>
+        <Title $color="blue" $decoration="line-through">
+          Hello, ReactJS!
+        </Title>
       </Wrapper>
     </>
   );
