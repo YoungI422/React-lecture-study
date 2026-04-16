@@ -5,9 +5,17 @@ const Title = styled.h1<{ $color: string; $decoration: string }>`
   text-decoration: ${(props) => props.$decoration};
 `;
 
+const BigTitle = styled(Title)`
+  font-size: 50px;
+`;
+
 const Wrapper = styled.section`
   padding: 2rem;
   border: 1px solid red;
+`;
+
+const BlueBorderWrapper = styled(Wrapper)`
+  border: 1px solid blue;
 `;
 
 export default function App() {
@@ -18,6 +26,11 @@ export default function App() {
           Hello, ReactJS!
         </Title>
       </Wrapper>
+      <BlueBorderWrapper>
+        <BigTitle $color="#0000ff" $decoration="underline">
+          Hello, ReactJS!
+        </BigTitle>
+      </BlueBorderWrapper>
     </>
   );
 }
