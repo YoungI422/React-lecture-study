@@ -29,7 +29,7 @@ const Wrapper = styled.section`
 `;
 
 const BlueBorderWrapper = styled(Wrapper)<{ $shadow: boolean }>`
-  border-color: blue;
+  border-color: ${(props) => props.theme.colors.primary};
   ${(props) => props.$shadow && boxShadowMixin}
 `;
 
