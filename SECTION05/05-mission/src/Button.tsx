@@ -7,5 +7,9 @@ export default function Button({
   children: React.ReactNode;
   handler: (message: string) => void;
 }) {
-  return <button onClick={() => handler(message)}>{children}</button>;
+  return (
+    <>
+      <button onClick={() => handler(message)}>{children}</button>
+    </>
+  );
 }
