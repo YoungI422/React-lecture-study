@@ -1,13 +1,26 @@
 export default function Calculator() {
+  const handleClear = (e: React.MouseEvent<HTMLInputElement, MouseEvent>) => {
+    console.log(e.currentTarget.value);
+  };
+  const buttonConfigs = [
+    { value: "C", className: "calc-clear", onClick: handleClear },
+  ];
+
   return (
     <>
       <div className="bg-[#1f1f1f] flex items-center justify-center h-screen">
-        <article className="w-[282px] border border-[#333] bg-[#ccc] p-1">
+        <article className="w-70.5 border border-[#333] bg-[#ccc] p-1">
           <form
             className="grid grid-cols-[repeat(4, 65px)] auto-rows-[65px] gap-1"
             name="forms"
           >
-            <input type="text" className="calc-input" name="output" readOnly />
+            <input
+              type="text"
+              className="calc-input"
+              name="output"
+              readOnly
+              onClick={(e) => e}
+            />
             <input type="button" className="calc-clear" value="C" />
             <input type="button" className="calc-operator" value="/" />
             <input type="button" className="calc-num" value="1" />
