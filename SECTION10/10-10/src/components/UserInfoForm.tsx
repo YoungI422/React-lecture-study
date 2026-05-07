@@ -1,8 +1,30 @@
+import { useRef } from "react";
+
 export default function UserInfoForm() {
+  const formRef = useRef<HTMLFormElement>(null);
+  const nameRef = useRef<HTMLInputElement>(null);
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (formRef.current) {
+      const formData = new FormData(formRef.current); //폼데이터 객체 생성
+      const name = formData.get("name");
+      const email = formData.get("email");
+      const gender = formData.get("gender");
+      const skills = formData.getAll("skills"); //체크박스는 getAll로 가져와야 함
+      const bio = formData.get("bio");
+      if (name === "") {
+        alert("이름을 입력해주세요.");
+        return; // 리턴은 왜 쓰는거야? -> 함수 실행을 중단하고 빠져나가기 위해서 사용함. 예를 들어, 이름이 빈 문자열인 경우에는 경고창을 띄우고 함수 실행을 중단하여 이후 코드가 실행되지 않도록 하기 위해서 return을 사용함.
+      }
+      nameRef.current?.focus(); //이름 입력창에 포커스
+      console.log({ name, email, gender, skills, bio });
+    }
+  };
+
   return (
     <div className="user-info">
       <h1 className="user-info__title">User Information</h1>
-      <form className="user-info__form">
+      <form className="user-info__form" ref={formRef} onSubmit={handleSubmit}>
         <div className="form-group">
           <label className="form-group__label" htmlFor="name">
             이름:
@@ -12,6 +34,7 @@ export default function UserInfoForm() {
             type="text"
             id="name"
             name="name"
+            ref={nameRef}
           />
         </div>
 
