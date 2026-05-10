@@ -1,3 +1,5 @@
+import { useRef } from "react";
+
 export default function Login() {
   return (
     <div className="flex items-center justify-center h-screen bg-gray-100">
@@ -25,6 +27,7 @@ export default function Login() {
                 type="password"
                 className="input-field"
                 placeholder="Enter Password"
+                ref={emailRef}
                 required
               />
               <button
